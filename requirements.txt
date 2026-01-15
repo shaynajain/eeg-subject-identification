@@ -1,0 +1,7 @@
+mne
+mne-connectivity
+numpy
+pandas
+scikit-learn
+networkx
+matplotlib
