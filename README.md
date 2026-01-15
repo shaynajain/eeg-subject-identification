@@ -145,8 +145,47 @@ Confusion matrices show strong diagonal structure, indicating consistent subject
 
 ---
 
+## Tools & Libraries
+- **Python 3.x**  
+- **MNE-Python** – EEG preprocessing, referencing, epoching, and dataset access  
+- **mne-connectivity** – Spectral connectivity estimation (coherence)  
+- **NumPy** – Numerical computation  
+- **Pandas** – Data handling and feature tables  
+- **NetworkX** – Graph construction and graph-theoretic metrics  
+- **scikit-learn** – Machine learning models, preprocessing, and evaluation  
+- **Matplotlib** – Visualization and plotting  
+
+---
+
+## Limitations
+- Small cohort size (10 subjects), which limits population-level generalization  
+- Epochs extracted from the same recording session are not fully independent  
+- Coherence-based connectivity is sensitive to volume conduction and shared sources  
+- Analysis is based on a single dataset and recording session  
+- Results may be influenced by fixed electrode placement and referencing choices  
+
+These limitations are common in EEG fingerprinting studies and motivate further investigation.
+
+---
+
+## Future Directions
+- Incorporate additional frequency bands (e.g., beta, theta)  
+- Expand to larger and more diverse subject cohorts  
+- Compare graph-based features with high-dimensional connectivity representations  
+- Apply group-aware or subject-wise cross-validation strategies  
+- Test cross-day or cross-session generalization  
+- Explore alternative connectivity measures (e.g., PLV, imaginary coherence)  
+- Investigate longitudinal stability of EEG fingerprints  
+
+---
+
+## Acknowledgments
+- **PhysioNet** for providing the EEG Motor Movement/Imagery Dataset (EEGMMIDB)  
+- **MNE-Python** developers for open-source EEG analysis tools  
+
 ## How to Run
 
 ```bash
 pip install -r requirements.txt
 jupyter notebook
+
