@@ -78,7 +78,7 @@ Each connectivity matrix is interpreted as a weighted, undirected graph:
 - **Nodes:** EEG channels  
 - **Edges:** Alpha-band coherence values  
 
-To ensure comparability across epochs, only the **top-k strongest connections** are retained per epoch (fixed graph density).
+To ensure comparability across epochs, only the **top-k strongest connections** are retained per epoch, enforcing a fixed graph density.
 
 ---
 
@@ -91,15 +91,15 @@ From each epoch-level connectivity graph, we extract **low-dimensional, interpre
 - Median clustering coefficient  
 - Node-specific degree and clustering at **C3 and C4** (motor cortex landmarks)  
 
-These features summarize global and local network organization while avoiding overfitting.
+These features summarize both global and local network organization while minimizing overfitting risk.
 
 ---
 
 ### 6. Machine Learning Model
 - **Classifier:** Multiclass Logistic Regression  
 - **Pipeline:**  
-  - StandardScaler (fit within training folds only)  
-  - Logistic Regression (L2-regularized)
+  - StandardScaler (fit within training data only)  
+  - L2-regularized Logistic Regression  
 
 ---
 
@@ -124,14 +124,24 @@ This demonstrates that subject-specific EEG connectivity patterns persist across
 
 ---
 
+## Visualizations
+
+### Cross-State Generalization Confusion Matrix (Run 1 → Run 3)
+![Generalization confusion matrix](figures/confusion_matrix_generalization.png)
+
+### Feature Importance (Logistic Regression Coefficients)
+![Feature importance](figures/feature_weights.png)
+
+Confusion matrices show strong diagonal structure, indicating consistent subject identification rather than random guessing.
+
+---
+
 ## Results Summary
 
 | Evaluation Type | Accuracy |
 |-----------------|----------|
 | Chance baseline | 10% |
 | Cross-state generalization (Run 1 → Run 3) | **61.8%** |
-
-Confusion matrices show strong diagonal structure, indicating consistent subject identification rather than random guessing.
 
 ---
 
