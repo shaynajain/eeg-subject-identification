@@ -143,4 +143,10 @@ Confusion matrices show strong diagonal structure, indicating consistent subject
 | Chance baseline | 10% |
 | Cross-state generalization (Run 1 → Run 3) | **61.8%** |
 
+---
 
+## How to Run
+
+```bash
+pip install -r requirements.txt
+jupyter notebook
